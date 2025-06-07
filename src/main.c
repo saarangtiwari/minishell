@@ -6,6 +6,7 @@
 
 int main()
 {
+    printf("C Program running with C Version: %ld \n", __STDC_VERSION__);
     char *message = getMessage();
     printf("%s", message);
 

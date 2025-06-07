@@ -1,129 +1,58 @@
-# Project: Mini Unix Shell
+# ✅ Mini Unix Shell — Progress Tracker
 
-A **Mini Unix Shell** is a simple version of the terminal (like `bash` or `zsh`) that you write yourself in C.
+## 📦 Phase 1: Core Shell Functionality
 
-### 🔧 What does it do?
+- [ ] Show a prompt: `$ `
+- [ ] Read user input using `getline()`
+- [ ] Parse input into command and arguments
+- [ ] Use `fork()` and `execvp()` to run commands
+- [ ] Use `waitpid()` to wait for the child process
+- [ ] Handle `exit` command
+- [ ] Gracefully handle `Ctrl+D` (EOF)
 
-It does what a normal shell does — it:
+## 📂 Phase 2: Built-in Commands
 
-1. **Shows a prompt** like this:
+- [ ] `cd [dir]` — Change working directory
+- [ ] `exit` — Exit the shell
+- [ ] `help` — List supported built-in commands
+- [ ] Error handling: invalid commands or paths
 
-   ```
-   $
-   ```
+## 🔁 Phase 3: Input/Output Redirection
 
-   and waits for you to type something.
+- [ ] Output redirection: `command > file.txt`
+- [ ] Append output: `command >> file.txt`
+- [ ] Input redirection: `command < file.txt`
+- [ ] Use `dup2()` to redirect file descriptors
 
-2. **Reads your command**, for example:
+## 🔗 Phase 4: Pipes (`|`)
 
-   ```
-   ls -l
-   ```
+- [ ] Parse and split commands separated by `|`
+- [ ] Create pipes with `pipe()`
+- [ ] Connect input/output using `dup2()`
+- [ ] Properly close unused pipe fds
 
-3. **Runs that command** by asking the operating system to start a new program (`ls` in this case).
+## ⚠️ Phase 5: Signals and Process Handling
 
-4. **Prints the output**, just like the real terminal.
+- [ ] Handle `SIGINT` (Ctrl+C) — don't kill the shell
+- [ ] Handle `SIGQUIT` (Ctrl+\`)
+- [ ] Reap zombie processes using `SIGCHLD` and `waitpid(-1, ...)`
+- [ ] Reset signal handling in child processes
 
-### 🧠 Why is it useful to build one?
+## 🛠 Phase 6: Code Structure & Makefile
 
-Because it helps you understand:
+- [ ] Organize code into multiple files:
+  - [ ] `main.c`
+  - [ ] `parser.c` / `parser.h`
+  - [ ] `executor.c` / `executor.h`
+  - [ ] `builtins.c` / `builtins.h`
+  - [ ] `utils.c` / `utils.h`
+- [ ] Makefile with targets: `all`, `run`, `clean`
+- [ ] Compiler flags: `-Wall -Wextra -g`
 
-- How a terminal works
-- How your program talks to the OS
-- How to use processes, memory, files, and input/output in C
-- How things like `ls`, `cd`, or `grep` really run under the hood
+## 🌟 Phase 7: Optional Advanced Features
 
-It's like building your own tiny version of the terminal you use every day — and it forces you to use many of the most important features of the C language and Unix systems.
-
----
-
-## 🧾 **Project Requirements: Mini Unix Shell in C**
-
-### ✅ **Core Functionality**
-
-1. **Prompt and Input**
-
-   - Display a prompt (e.g., `$ `) and accept user input from stdin.
-   - Support basic command execution with arguments (e.g., `ls -la`).
-
-2. **Command Execution**
-
-   - Parse user input into tokens.
-   - Execute external programs using `fork()` and `execvp()`.
-   - Wait for foreground processes to finish using `wait()`.
-
-3. **Built-in Commands**
-
-   - Implement at least these built-ins:
-
-     - `cd [dir]`
-     - `exit`
-     - `help`
-
-4. **Error Handling**
-
-   - Gracefully handle invalid commands, failed forks, and exec errors.
-   - Print helpful error messages.
-
----
-
-### 🔁 **I/O Redirection**
-
-5. **Output Redirection**
-
-   - Support `>` for writing output to a file.
-
-     - Example: `echo hello > out.txt`
-
-6. **Input Redirection**
-
-   - Support `<` for reading input from a file.
-
-     - Example: `cat < input.txt`
-
----
-
-### 🔗 **Pipes**
-
-7. **Command Piping**
-
-   - Support chaining commands using `|`.
-
-     - Example: `ls -l | grep .c | wc -l`
-
----
-
-### 🧠 **Process & Signal Handling**
-
-8. **Signals**
-
-   - Handle `Ctrl+C` (SIGINT) without terminating the shell.
-   - Reap zombie child processes (handle `SIGCHLD`).
-
----
-
-### 📁 **Modularity & Build**
-
-9. **Code Structure**
-
-   - Organize code into multiple `.c` and `.h` files.
-   - Separate concerns: input parsing, execution, built-ins, utils, etc.
-
-10. **Build System**
-
-    - Provide a `Makefile` to build the shell.
-    - Use `gcc` with appropriate flags (`-Wall -Wextra -g`).
-
----
-
-### 🧪 **Optional Features (Stretch Goals)**
-
-- Background execution with `&`
-- Command history
-- Tab auto-completion
-- `.myshellrc` config file
-- Colored or customizable prompt
-
----
-
-Let me know if you'd like a checklist version or a markdown template for tracking your progress.
+- [ ] Background jobs: `sleep 10 &`
+- [ ] Command history (e.g., `readline`)
+- [ ] Tab auto-completion
+- [ ] `.minishellrc` configuration file
+- [ ] Custom prompt with user/cwd info or colors
