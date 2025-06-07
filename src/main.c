@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <sys/dir.h>
-#include "parse_command.h"
+#include "parser.h"
 
 int main()
 {
@@ -21,21 +21,17 @@ int main()
         printf("$");
         scanf("%s", input);
 
-        if (strncmp(input, "0", 10) == 0)
+        switch (parse_command(input))
         {
+        case 1:
+            printf("Unsupported command entered: %s. Press 0 to exit\n", input);
+            break;
+        case 2:
             terminal_status = 1;
-        }
-        else
-        {
-            int res = parse_command(input);
-            if (res == 1)
-            {
-                printf("Unsupported command entered: %s. Press 0 to exit\n", input);
-            }
-            else
-            {
-                printf("Command executed. Press 0 to exit\n");
-            }
+            break;
+
+        default:
+            break;
         }
     };
 

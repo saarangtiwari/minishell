@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "ls.h": "c",
-        "handler.h": "c"
+        "handler.h": "c",
+        "dir.h": "c"
     }
 }
