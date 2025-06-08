@@ -20,5 +20,6 @@ int parse_command(char *cmd)
         ls_command(".");
         return 0;
     }
-    return 1;
+    printf("Unsupported command entered: %s. Press 0 to exit\n", cmd);
+    return 0;
 }

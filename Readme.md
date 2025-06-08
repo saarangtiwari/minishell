@@ -2,7 +2,7 @@
 
 ## 📦 Phase 1: Core Shell Functionality
 
-- [ ] Show a prompt: `$ `
+- [x] Show a prompt: `$ `
 - [ ] Read user input using `getline()`
 - [ ] Parse input into command and arguments
 - [ ] Use `fork()` and `execvp()` to run commands
