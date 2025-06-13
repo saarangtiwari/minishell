@@ -45,11 +45,11 @@ int main()
         // printf("$");
         // scanf("%s", input);
         // printf("you have entered: %s\n", input);
-        // // Parse command inputs
-        // if ((parse_command(input)) == 2)
-        // {
-        //     terminal_status = 1;
-        // }
+        // Parse command inputs
+        if ((parse_command(input)) == 2)
+        {
+            terminal_status = 1;
+        }
     };
 
     return 0;

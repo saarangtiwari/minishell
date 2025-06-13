@@ -1,7 +1,7 @@
 #include "ls.h"
 #include <string.h>
 
-int parse_command(char *cmd)
+int parse_command(char *cmd, char *args)
 {
     // return codes:
     // 0 -> success;
