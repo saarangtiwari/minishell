@@ -1,7 +1,7 @@
 #include "ls.h"
 #include <string.h>
 
-int parse_command(char *cmd, char *args)
+int parse_command(char *cmd)
 {
     // return codes:
     // 0 -> success;
@@ -20,6 +20,6 @@ int parse_command(char *cmd, char *args)
         ls_command(".");
         return 0;
     }
-    printf("Unsupported command entered: %s. Press 0 to exit\n", cmd);
+    // printf("Unsupported command entered: %s. Press 0 to exit\n", cmd);
     return 0;
 }
