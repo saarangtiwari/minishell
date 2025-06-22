@@ -24,6 +24,30 @@ void fahr_to_cel()
         printf("F: %6d | C: %6.2f \n", fahr, convert_to_celcius(fahr));
     }
 }
+// Excercise: 1-9: Write a program to copy its input to its output, replacing each string of one or
+// more blanks by a single blank
+
+void convert_multiple_spaces_to_single_space()
+{
+    int SPACE_ASCII = 32;
+    int c = getchar();
+    while (c != EOF)
+    {
+        if (c == SPACE_ASCII)
+        {
+            // While there is space char keeping taking input but don't print output
+            while (c == SPACE_ASCII)
+            {
+                c = getchar();
+            }
+            // once the series of spaces have been read just print 1 space char
+            putchar(SPACE_ASCII);
+        }
+        putchar(c);
+        c = getchar();
+    }
+}
+
 // Fahrenheite to Celcius : END
 
 int main()
@@ -38,21 +62,5 @@ int main()
     // }
 
     /*Copy input to output*/
-
-    int c = getchar();
-    while (c != EOF)
-    {
-        if (c == 32)
-        {
-            // While there is space char keeping taking input but don't print output
-            while (c == 32)
-            {
-                c = getchar();
-            }
-            // once the series of spaces have been read just print 1 space char
-            putchar(32);
-        }
-        putchar(c);
-        c = getchar();
-    }
+    convert_multiple_spaces_to_single_space();
 }
